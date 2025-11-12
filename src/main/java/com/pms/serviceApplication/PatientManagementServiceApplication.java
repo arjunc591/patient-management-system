@@ -1,13 +1,13 @@
-package com.learning.demo;
+package com.pms.serviceApplication;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class PatientManagementServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(PatientManagementServiceApplication.class, args);
 	}
 
 }
