@@ -1,15 +1,19 @@
 package com.pms.serviceApplication.entity;
 
 import jakarta.persistence.Entity;
-import jdk.jfr.DataAmount;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 import java.sql.Date;
+import java.util.UUID;
 
 
 @Entity
-
 public class Patient {
 
+    @Id
+    @GeneratedValue
+    private UUID id;
     private String name;
     private String email;
     private String address;
