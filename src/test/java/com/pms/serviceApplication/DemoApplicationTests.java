@@ -1,4 +1,4 @@
-package com.learning.demo;
+package com.pms.serviceApplication;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
