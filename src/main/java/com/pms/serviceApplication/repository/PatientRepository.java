@@ -14,4 +14,11 @@ public interface PatientRepository extends JpaRepository<Patient, UUID> {
     default List<Patient> getAllPatients(){
         return findAll();
     }
+
+
+    default Patient savePatient(Patient patient){
+        return saveAndFlush(patient);
+    }
+
+
 }
