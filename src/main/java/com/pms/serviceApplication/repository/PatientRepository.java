@@ -20,5 +20,7 @@ public interface PatientRepository extends JpaRepository<Patient, UUID> {
         return saveAndFlush(patient);
     }
 
+    boolean existsByEmail(String email);
+
 
 }

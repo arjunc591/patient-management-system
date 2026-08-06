@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(PMSContants.BASE_URL)
@@ -33,6 +34,11 @@ public class PatientController {
     @PostMapping("/save")
     public ResponseEntity<PatientResponseDto> savePatient(@Valid @RequestBody PatientRequestDto request){
         return ResponseEntity.ok().body(patientService.savePatient(request));
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<PatientResponseDto> updatePatient(@PathVariable UUID id,@RequestBody PatientRequestDto patientRequestDto){
+       return ResponseEntity.ok().body(patientService.updatePatient(id, patientRequestDto));
     }
 
 
