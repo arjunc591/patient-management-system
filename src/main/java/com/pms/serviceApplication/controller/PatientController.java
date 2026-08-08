@@ -4,6 +4,8 @@ import com.pms.serviceApplication.contants.PMSContants;
 import com.pms.serviceApplication.dto.PatientRequestDto;
 import com.pms.serviceApplication.dto.PatientResponseDto;
 import com.pms.serviceApplication.service.PatientService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +18,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping(PMSContants.BASE_URL)
-
+@Tag(name = "patient controller",description = "patient crud operations")
 public class PatientController {
 
     private static final Logger log = LoggerFactory.getLogger(PatientController.class);
@@ -24,6 +26,7 @@ public class PatientController {
     PatientService patientService;
 
     @GetMapping(PMSContants.GET_PATIENT)
+    @Operation(description = "fetch patient details")
     public ResponseEntity<List<PatientResponseDto>> getAllPatient(){
         List<PatientResponseDto> patientList =  patientService.getAllPatient();
         log.info(patientList.toString());
@@ -31,12 +34,14 @@ public class PatientController {
 
     }
 
-    @PostMapping("/save")
+    @PostMapping(PMSContants.CREATE_PATIENT)
+    @Operation(description = "create a new patient")
     public ResponseEntity<PatientResponseDto> savePatient(@Valid @RequestBody PatientRequestDto request){
         return ResponseEntity.ok().body(patientService.savePatient(request));
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping(PMSContants.UPDATE_PATIENT+"/{id}")
+    @Operation(description = "update patient details")
     public ResponseEntity<PatientResponseDto> updatePatient(@PathVariable UUID id,@RequestBody PatientRequestDto patientRequestDto){
        return ResponseEntity.ok().body(patientService.updatePatient(id, patientRequestDto));
     }
