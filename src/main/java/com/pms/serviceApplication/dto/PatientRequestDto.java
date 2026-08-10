@@ -3,7 +3,6 @@ package com.pms.serviceApplication.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -18,6 +17,6 @@ public class PatientRequestDto {
     @Email(message = "enter a valid email id")
     private String email;
     private String address;
-    private Date date_of_birth;
+    private Date dateOfBirth;
     private Date registeredDate;
 }
