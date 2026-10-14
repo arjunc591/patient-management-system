@@ -12,14 +12,11 @@ public class PatientEventProducer {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    public void publishPatientRegistered(PatientEvent event){
+    public void publishPatientEvent(PatientEvent event){
         kafkaTemplate.send("patient-event",event.patientId().toString(),event);
     }
 
-    public void testEvent(){
-        PatientEvent event = new PatientEvent(101L,"arjun","arjun@gmail.com");
-        publishPatientRegistered(event);
-    }
+
 
 
 }

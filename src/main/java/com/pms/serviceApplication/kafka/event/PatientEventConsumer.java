@@ -1,14 +1,19 @@
 package com.pms.serviceApplication.kafka.event;
 
+import com.pms.serviceApplication.service.NotificationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 @Service
 public class PatientEventConsumer {
 
-    @KafkaListener(topics = "patient-event", groupId = "pms-consumer-group")
+    @Autowired
+    NotificationService notificationService;
+
+    @KafkaListener(topics = "patient-event", groupId = "notification-consumer-group")
     public void consume(PatientEvent event){
-        System.out.println("received patient event "+event);
+        notificationService.notifyPatient(event);
     }
 
 }

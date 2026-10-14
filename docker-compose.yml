@@ -44,3 +44,12 @@ services:
     environment:
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+  pms-api-gateway:
+    build:
+      context: ../pms-api-gateway
+      dockerfile: Dockerfile
+    container_name: pms-api-gateway
+    ports:
+      - "8085:8085"
+    depends_on:
+      - pms

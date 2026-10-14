@@ -16,6 +16,6 @@ public class KafkaController {
 
     @PostMapping("/test")
     public void testKafka(){
-        patientEventProducer.testEvent();
+        //patientEventProducer.testEvent();
     }
 }

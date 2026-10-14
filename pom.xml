@@ -11,6 +11,7 @@
 	<groupId>com.patientManagementSystem</groupId>
 	<artifactId>pms</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 	<name>pms</name>
 	<description>project for patient management</description>
 	<url/>
@@ -20,6 +21,9 @@
 	<developers>
 		<developer/>
 	</developers>
+	<modules>
+		<module>pms-api-gateway</module>
+	</modules>
 	<scm>
 		<connection/>
 		<developerConnection/>
